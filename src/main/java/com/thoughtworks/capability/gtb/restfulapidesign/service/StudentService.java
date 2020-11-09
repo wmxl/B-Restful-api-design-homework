@@ -12,4 +12,9 @@ public class StudentService {
     public List<Student> findAll(){
         return DataProvider.students;
     }
+
+    public void deleteStudentById(Integer id) {
+
+        DataProvider.students.remove(id);
+    }
 }

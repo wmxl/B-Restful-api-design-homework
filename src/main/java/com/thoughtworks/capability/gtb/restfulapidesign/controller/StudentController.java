@@ -27,4 +27,8 @@ public class StudentController {
         int id = DataProvider.students.size();
         DataProvider.students.add(new Student(id+1, stu.getName()));
     }
+    @DeleteMapping("/{id}")
+    public void deleteStudentById(@RequestBody Integer id){
+        studentService.deleteStudentById(id);
+    }
 }
