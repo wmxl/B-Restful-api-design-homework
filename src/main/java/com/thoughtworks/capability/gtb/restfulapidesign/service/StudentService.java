@@ -6,7 +6,6 @@ import com.thoughtworks.capability.gtb.restfulapidesign.model.Gender;
 import com.thoughtworks.capability.gtb.restfulapidesign.model.Student;
 import org.springframework.stereotype.Service;
 
-import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -26,6 +25,10 @@ public class StudentService {
             resList = new ArrayList<>(map.values());
         }
         return resList;
+    }
+
+    public ArrayList<Student> findAll(){
+        return new ArrayList<>(DataProvider.students.values());
     }
 
     public void deleteStudentById(Integer id) {

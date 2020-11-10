@@ -2,21 +2,21 @@ package com.thoughtworks.capability.gtb.restfulapidesign.controller;
 
 import com.thoughtworks.capability.gtb.restfulapidesign.model.Gender;
 import com.thoughtworks.capability.gtb.restfulapidesign.service.StudentService;
-import com.thoughtworks.capability.gtb.restfulapidesign.db.DataProvider;
 import com.thoughtworks.capability.gtb.restfulapidesign.model.Student;
-import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 @RestController
 @RequestMapping("/students")
 public class StudentController {
 
-    @Autowired
-    private StudentService studentService;
+    private final StudentService studentService;
+
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
+    }
 
     @GetMapping("")
     public ArrayList<Student> findAll(@RequestParam(required = false, name = "gender")  Gender gender){
@@ -45,4 +45,6 @@ public class StudentController {
     public Student findStudentById(@PathVariable("id") Integer id){
         return studentService.findStudentById(id);
     }
+
+
 }
