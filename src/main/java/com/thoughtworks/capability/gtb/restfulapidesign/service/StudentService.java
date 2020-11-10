@@ -11,6 +11,7 @@ import java.util.HashMap;
 
 @Service
 public class StudentService {
+
     public ArrayList<Student> findAll(Gender gender){
         ArrayList<Student> resList = new ArrayList<>();
         HashMap<Integer,Student> map = DataProvider.students;

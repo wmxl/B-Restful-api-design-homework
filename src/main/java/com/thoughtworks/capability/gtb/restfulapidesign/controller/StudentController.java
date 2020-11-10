@@ -20,7 +20,6 @@ public class StudentController {
 
     @GetMapping("")
     public ArrayList<Student> findAll(@RequestParam(required = false, name = "gender")  Gender gender){
-
         System.out.println(gender);
         System.out.println(studentService.findAll(gender));
         return studentService.findAll(gender);
