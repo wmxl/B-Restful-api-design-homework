@@ -4,6 +4,7 @@ import com.thoughtworks.capability.gtb.restfulapidesign.model.Gender;
 import com.thoughtworks.capability.gtb.restfulapidesign.service.StudentService;
 import com.thoughtworks.capability.gtb.restfulapidesign.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class StudentController {
     }
 
     @PostMapping("")
+    @ResponseStatus(HttpStatus.CREATED)
     public void createStudent(@RequestBody Student stu) {
         studentService.createStudent(stu);
     }

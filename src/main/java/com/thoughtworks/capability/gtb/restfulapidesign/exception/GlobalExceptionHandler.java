@@ -11,13 +11,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-//  @ExceptionHandler(StudentNotExistException.class)
-//  @ResponseStatus(HttpStatus.NOT_FOUND)
-//  @ResponseBody
-//  public ErrorResult handle(StudentNotExistException ex) {
-//    return new ErrorResult(ex.getMessage());
-//  }
-
   @ExceptionHandler(StudentNotExistException.class)
   @ResponseStatus(HttpStatus.NOT_FOUND)
   @ResponseBody
