@@ -6,7 +6,7 @@ import com.thoughtworks.capability.gtb.restfulapidesign.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.HashMap;
 
 @RestController
 @RequestMapping("/students")
@@ -16,19 +16,19 @@ public class StudentController {
     private StudentService studentService;
 
     @GetMapping("")
-    public List<Student> findAll(){
-        List<Student> list = studentService.findAll();
+    public HashMap<Integer, Student> findAll(){
+        HashMap<Integer, Student> list = studentService.findAll();
         return list;
     }
 
     @PostMapping("")
     public void addStudent(@RequestBody Student stu) {
         System.out.println(stu.getName());
-        int id = DataProvider.students.size();
-        DataProvider.students.add(new Student(id+1, stu.getName()));
+        Student newStudent = new Student(DataProvider.idCount, stu.getName());
+        DataProvider.students.put(DataProvider.idCount++, newStudent);
     }
     @DeleteMapping("/{id}")
-    public void deleteStudentById(@RequestBody Integer id){
+    public void deleteStudentById(@PathVariable("id") Integer id){
         studentService.deleteStudentById(id);
     }
 }

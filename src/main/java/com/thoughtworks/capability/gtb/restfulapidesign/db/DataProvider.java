@@ -3,10 +3,13 @@ package com.thoughtworks.capability.gtb.restfulapidesign.db;
 import com.thoughtworks.capability.gtb.restfulapidesign.model.Student;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DataProvider {
-    public static List<Student> students = new ArrayList<>();
+    public static HashMap<Integer, Student> students = new HashMap();
+    public static int idCount = 16;
     static {
         Student[] stu = new Student[15];
         stu[0] = new Student(1, "成吉思汗");
@@ -26,7 +29,7 @@ public class DataProvider {
         stu[14] = new Student(15, "蔡文姬");
 
         for (int i = 0; i < 15; i++) {
-            students.add(stu[i]);
+            students.put(i+1, stu[i]);
         }
     }
 }
