@@ -14,7 +14,7 @@ public class DataProvider {
     static {
         Student[] stu = new Student[15];
         stu[0] = new Student(1, "成吉思汗", Gender.MALE, "some notes");
-        stu[1] = new Student(2, "鲁班七号", Gender.MALE, "some notes");
+        stu[1] = new Student(2, "鲁班七号", Gender.FEMALE, "some notes");
         stu[2] = new Student(3, "太乙真人", Gender.MALE, "some notes");
 //        stu[3] = new Student(4, "钟无艳", Gender.MALE, "some notes");
 //        stu[4] = new Student(5, "花木兰", Gender.MALE, "some notes");
