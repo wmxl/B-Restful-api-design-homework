@@ -22,14 +22,17 @@ public class StudentController {
     }
 
     @PostMapping("")
-    public void addStudent(@RequestBody Student stu) {
-        System.out.println(stu.getName());
-
-        stu.setId(DataProvider.idCount);
-        DataProvider.students.put(DataProvider.idCount++, stu);
+    public void createStudent(@RequestBody Student stu) {
+        studentService.createStudent(stu);
     }
+
     @DeleteMapping("/{id}")
     public void deleteStudentById(@PathVariable("id") Integer id){
         studentService.deleteStudentById(id);
+    }
+
+    @GetMapping("/{id}")
+    public Student findStudentById(@PathVariable("id") Integer id){
+        return studentService.findStudentById(id);
     }
 }

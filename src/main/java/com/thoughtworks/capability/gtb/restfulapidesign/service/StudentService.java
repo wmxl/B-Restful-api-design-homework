@@ -16,8 +16,20 @@ public class StudentService {
 
     public void deleteStudentById(Integer id) {
         if(!DataProvider.students.containsKey(id)){
-            throw new StudentNotExistException("The student you delete not exist");
+            throw new StudentNotExistException("The student you try to delete not exist");
         }
         DataProvider.students.remove(id);
+    }
+
+    public Student findStudentById(Integer id) {
+        if(!DataProvider.students.containsKey(id)){
+            throw new StudentNotExistException("The student you try to find not exist");
+        }
+        return DataProvider.students.get(id);
+    }
+
+    public void createStudent(Student stu) {
+        stu.setId(DataProvider.idCount);
+        DataProvider.students.put(DataProvider.idCount++, stu);
     }
 }
