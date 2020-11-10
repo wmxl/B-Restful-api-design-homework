@@ -24,8 +24,9 @@ public class StudentController {
     @PostMapping("")
     public void addStudent(@RequestBody Student stu) {
         System.out.println(stu.getName());
-        Student newStudent = new Student(DataProvider.idCount, stu.getName());
-        DataProvider.students.put(DataProvider.idCount++, newStudent);
+
+        stu.setId(DataProvider.idCount);
+        DataProvider.students.put(DataProvider.idCount++, stu);
     }
     @DeleteMapping("/{id}")
     public void deleteStudentById(@PathVariable("id") Integer id){

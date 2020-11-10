@@ -1,28 +1,24 @@
 package com.thoughtworks.capability.gtb.restfulapidesign.model;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Student {
     int id;
     String name;
+    Gender gender;
 
-    public Student(int id, String name) {
-        this.id = id;
+    public Student(String name, Gender gender, String note) {
         this.name = name;
+        this.gender = gender;
+        this.note = note;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    String note;
 }
+
