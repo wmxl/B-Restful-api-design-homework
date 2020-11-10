@@ -40,10 +40,9 @@ public class StudentController {
         studentService.deleteStudentById(id);
     }
 
+
     @GetMapping("/{id}")
     public Student findStudentById(@PathVariable("id") Integer id){
         return studentService.findStudentById(id);
     }
-
-
 }

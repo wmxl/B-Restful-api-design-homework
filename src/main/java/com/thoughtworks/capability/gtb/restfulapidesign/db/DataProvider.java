@@ -1,6 +1,7 @@
 package com.thoughtworks.capability.gtb.restfulapidesign.db;
 
 import com.thoughtworks.capability.gtb.restfulapidesign.model.Gender;
+import com.thoughtworks.capability.gtb.restfulapidesign.model.Group;
 import com.thoughtworks.capability.gtb.restfulapidesign.model.Student;
 
 import java.util.ArrayList;
@@ -34,5 +35,5 @@ public class DataProvider {
         }
     }
 
-    public static ArrayList<HashMap< String, ArrayList<Student>> > groups = new ArrayList<>();
+    public static ArrayList<Group> groups = new ArrayList<>();
 }
